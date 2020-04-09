@@ -36,7 +36,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Bitmap bitmap;
 
     // The colors
-    private static final int colorPipe = Color.parseColor("#008000");
+    private static final int colorPipe = Color.parseColor("#FFFFFF");
 
     // The current score
     private int score = 0;
@@ -218,11 +218,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         return bitmap;
     }
 
-    /**
-     * Returns true if the bird is still alive, false otherwise.
-     *
-     * @return True if the bird is still alive, false otherwise.
-     */
+
     public boolean isAlive() {
         // Check if the bird hits the pipes
         for (Pipe pipe : pipeList) {

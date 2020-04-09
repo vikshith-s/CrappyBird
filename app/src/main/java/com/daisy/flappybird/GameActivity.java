@@ -71,9 +71,9 @@ public class GameActivity extends AppCompatActivity {
                         }
 
                         alertDialog = new AlertDialog.Builder(GameActivity.this);
-                        alertDialog.setTitle("GAME OVER");
+                        alertDialog.setTitle("Game Over");
                         alertDialog.setMessage("Score: " + String.valueOf(gameView.getScore()) +
-                                "\n" + "Would you like to RESTART?");
+                                "\n" + "Would you like to try again?");
                         alertDialog.setCancelable(false);
                         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
@@ -222,14 +222,11 @@ public class GameActivity extends AppCompatActivity {
                     mAudioRecord.startRecording();
                     short[] buffer = new short[BUFFER_SIZE];
                     while (isGetVoiceRun) {
-                        // r是实际读取的数据长度，一般而言r会小于buffersize
                         int r = mAudioRecord.read(buffer, 0, BUFFER_SIZE);
                         long v = 0;
-                        // 将 buffer 内容取出，进行平方和运算
                         for (int i = 0; i < buffer.length; i++) {
                             v += buffer[i] * buffer[i];
                         }
-                        // 平方和除以数据总长度，得到音量大小。
                         double mean = v / (double) r;
                         double volume = 10 * Math.log10(mean);
                         Log.i(TAG, "分贝值:" + volume);
